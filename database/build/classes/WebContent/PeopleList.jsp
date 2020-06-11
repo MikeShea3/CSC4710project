@@ -34,22 +34,25 @@ if(request.getParameter("listPeople") == null) { // we want to make sure that we
         <table border="1" cellpadding="5">
             <caption><h2>List of People</h2></caption>
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Status</th>
-                <th>Actions</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Password Confirmed</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
             </tr>
             <c:forEach var="people" items="${listPeople}">
                 <tr>
-                    <td><c:out value="${people.id}" /></td>
-                    <td><c:out value="${people.name}" /></td>
-                    <td><c:out value="${people.address}" /></td>
-                    <td><c:out value="${people.status}" /></td>
+                    <td><c:out value="${people.email}" /></td>
+                    <td><c:out value="${people.password}" /></td>
+                    <td><c:out value="${people.passwordConfirmed}" /></td>
+                    <td><c:out value="${people.firstname}" /></td>
+                    <td><c:out value="${people.lastname}" /></td>
+                    <td><c:out value="${people.age}" /></td>
                     <td>
-                        <a href="edit?id=<c:out value='${people.id}' />">Edit</a>
+                        <a href="edit?email=<c:out value='${people.email}' />">Edit</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="delete?id=<c:out value='${people.id}' />">Delete</a>                     
+                        <a href="delete?email=<c:out value='${people.email}' />">Delete</a>                     
                     </td>
                 </tr>
             </c:forEach>
