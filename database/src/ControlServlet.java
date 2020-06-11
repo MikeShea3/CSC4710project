@@ -58,7 +58,10 @@ public class ControlServlet extends HttpServlet {
             case "/update":
             	updatePeople(request, response);
                 break;
-            default:          	
+            case "/list":
+            	listPeople(request, response);
+            	break;
+            default:  
             	listPeople(request, response);           	
                 break;
             }

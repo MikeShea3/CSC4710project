@@ -24,7 +24,7 @@
                 </h2>
             </caption>
                 <c:if test="${people != null}">
-                    <input type="hidden" email="email" value="<c:out value='${people.email}' />" />
+                    <input type="text" email="email" value="<c:out value='${people.email}' />" />
                 </c:if>           
             <tr>
                 <th>Email: </th>
