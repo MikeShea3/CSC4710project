@@ -1,11 +1,11 @@
 # CSC4710project
 
-This is a project made by students at Wayne State University for the Intro to Databases course.
+This is a project made by students at Wayne State University for the Intro to Databases course. 
 
 ## Developers
 
-Frino Jais
-Michael Shea
+- Frino Jais
+- Michael Shea
 
 ## Tools & Versions
 
@@ -25,10 +25,10 @@ MySQL Workbench 8.0
 
 #### Database Configurations
 This project requires a MySQL connection with the following configurations:
-<b>Hostname:</b> 127.0.0.1
-<b>Port:</b> 3306
-<b>Username:</b> john
-<b>Password:</b> pass1234
+- <b>Hostname:</b> 127.0.0.1
+- <b>Port:</b> 3306
+- <b>Username:</b> john
+- <b>Password:</b> pass1234
 
 ### Java Servlet Container
 Tomcat v9.0
