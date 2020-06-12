@@ -4,8 +4,8 @@ This is a project made by students at Wayne State University for the Intro to Da
 
 ## Developers
 
-- Frino Jais
-- Michael Shea
+- Frino Jais	(el6583)
+- Michael Shea	(gl9411)
 
 ## Tools & Versions
 
