@@ -67,6 +67,7 @@ public class ControlServlet extends HttpServlet {
         }
     }
     
+    // Method to list all users in the table [Complete]
     private void listPeople(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         List<People> listPeople = peopleDAO.listAllPeople();
@@ -75,26 +76,26 @@ public class ControlServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
  
-    // to insert a people
+    // Method to insert a new user into the table [Complete]
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("InsertPeopleForm.jsp");
         dispatcher.forward(request, response);
     }
  
-    // to present an update form to update an  existing Student
+    // Method to display the EditPeopleForm.jsp [Complete]
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
+    	
     	String email = request.getParameter("email");
-        People existingPeople = peopleDAO.getPeople("email");
+        People existingPeople = peopleDAO.getPeople(email);
         RequestDispatcher dispatcher = request.getRequestDispatcher("EditPeopleForm.jsp");
         request.setAttribute("people", existingPeople);
         dispatcher.forward(request, response); // The forward() method works at server side, and It sends the same request and response objects to another servlet.
  
     }
  
-    // after the data of a people are inserted, this method will be called to insert the new people into the DB
-    // 
+    // Method to insert a new user to the table [Complete]
     private void insertPeople(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
     	String email = request.getParameter("email");
@@ -109,22 +110,23 @@ public class ControlServlet extends HttpServlet {
         response.sendRedirect("list");  // The sendRedirect() method works at client side and sends a new request
     }
  
+    // Method to update an individual user in the table [Complete]
     private void updatePeople(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        
-        System.out.println(id);
-        String name = request.getParameter("name");
-        String address = request.getParameter("address");
-        String status = request.getParameter("status");
-        
-        System.out.println(name);
-        
-        People people = new People(id,name, address, status);
+  
+    	String email = request.getParameter("email");
+    	String password = request.getParameter("password");
+    	String passwordConfirmed = request.getParameter("passwordConfirmed");
+    	String firstname = request.getParameter("firstname");
+    	String lastname = request.getParameter("lastname");
+    	int age = Integer.parseInt(request.getParameter("age"));
+    	
+        People people = new People(email, password, passwordConfirmed, firstname, lastname, age);
         peopleDAO.update(people);
         response.sendRedirect("list");
     }
  
+    // Method to delete a user from the table [Complete]
     private void deletePeople(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
     	String email = request.getParameter("email");

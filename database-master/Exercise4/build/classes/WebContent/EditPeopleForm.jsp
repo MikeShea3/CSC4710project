@@ -21,31 +21,57 @@
             <caption>
                 <h2>Edit an Existing User</h2>
             </caption>
-                    <input type="hidden" name="id" value="<c:out value='${people.id}' />" />
+            	
+            	<%-- I'm not sure specifically what this does --%>
+                    <input type="hidden" name="email" value="<c:out value='${people.email}' />" />
+
+                      
+            
             <tr>
-                <th>Name: </th>
+                <th>Password: </th>
                 <td>
-                    <input type="text" name="name" size="45"
-                            value="<c:out value='${people.name}' />"
-                        />
-                </td>
-            </tr>
-            <tr>
-                <th>Address: </th>
-                <td>
-                    <input type="text" name="address" size="45"
-                            value="<c:out value='${people.address}' />"
+                    <input type="text" name="password" size="50"
+                            value="<c:out value='${people.password}' />"
                     />
                 </td>
             </tr>
             <tr>
-                <th>Status: </th>
+                <th>Password Confirmed: </th>
                 <td>
-                    <input type="text" name="status" size="5"
-                            value="<c:out value='${people.status}' />"
+                    <input type="text" name="passwordConfirmed" size="50"
+                            value="<c:out value='${people.passwordConfirmed}' />"
                     />
                 </td>
             </tr>
+            
+            <tr>
+                <th>First Name: </th>
+                <td>
+                    <input type="text" name="firstname" size="50"
+                            value="<c:out value='${people.firstname}' />"
+                    />
+                </td>
+            </tr>
+            
+            <tr>
+                <th>Last Name: </th>
+                <td>
+                    <input type="text" name="lastname" size="50"
+                            value="<c:out value='${people.lastname}' />"
+                    />
+                </td>
+            </tr>
+            
+            
+            <tr>
+                <th>Age: </th>
+                <td>
+                    <input type="text" name="age" size="50"
+                            value="<c:out value='${people.age}' />"
+                    />
+                </td>
+            </tr>
+            
             <tr>
                 <td colspan="2" align="center">
                     <input type="submit" value="Save" />

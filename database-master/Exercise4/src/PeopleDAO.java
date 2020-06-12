@@ -90,6 +90,7 @@ public class PeopleDAO {
     }
          
     
+    // Method to insert a user into the table [Complete]
     public boolean insert(People people) throws SQLException {
     	connect_func();       
     	String sql = "insert into user(email, password, passwordConfirmed, firstname, lastname, age) values (?,?,?,?,?,?)";
@@ -109,6 +110,7 @@ public class PeopleDAO {
         return rowInserted;
     }     
      
+    // Method to delete a user from the table [Complete]
     public boolean delete(String email) throws SQLException {
     	
         String sql = "DELETE FROM user WHERE email = ?";        
@@ -124,14 +126,18 @@ public class PeopleDAO {
     }
      
     public boolean update(People people) throws SQLException {
-        String sql = "update user set Name=?, Address =?,Status = ? where id = ?";
+        String sql = "update user set email = ?, password=?, passwordConfirmed=?, firstname=?, lastname=?, age=? where email = ?";
         connect_func();
         
         preparedStatement = (PreparedStatement) connect.prepareStatement(sql);
-        preparedStatement.setString(1, people.name);
-        preparedStatement.setString(2, people.address);
-        preparedStatement.setString(3, people.status);
-        preparedStatement.setInt(4, people.id);
+        
+        preparedStatement.setString(1, people.email);
+        preparedStatement.setString(2, people.password);
+        preparedStatement.setString(3, people.passwordConfirmed);
+        preparedStatement.setString(4, people.firstname);
+        preparedStatement.setString(5, people.lastname);
+        preparedStatement.setInt(6, people.age);
+        preparedStatement.setString(7, people.email);
          
         boolean rowUpdated = preparedStatement.executeUpdate() > 0;
         preparedStatement.close();
@@ -140,6 +146,8 @@ public class PeopleDAO {
     }
 	
     public People getPeople(String email) throws SQLException {
+    	System.out.println("GET PEOPLE EMAIL: " + email);
+    	
     	People people = null;
         String sql = "SELECT * FROM user WHERE email = ?";
          
@@ -151,6 +159,7 @@ public class PeopleDAO {
         ResultSet resultSet = preparedStatement.executeQuery();
          
         if (resultSet.next()) {
+        	email = resultSet.getString("email");
             String password = resultSet.getString("password");
             String passwordConfirmed = resultSet.getString("passwordConfirmed");
             String firstname = resultSet.getString("firstname");
