@@ -49,6 +49,6 @@ If the database is not yet initialized run the following code in your local mySQ
 	primary key (email), 
 	UNIQUE(email), 
 	CHECK(password=passwordConfirmed)
-);
+	);
 
 	INSERT INTO user VALUES('root', 'system', 'admin', 'pass1234', 'pass1234', 99);
