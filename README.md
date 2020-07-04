@@ -34,9 +34,11 @@ This project requires a MySQL connection with the following configurations:
 Tomcat v9.0
 
 ### RUNNING THE APPLICATION ###
+Currently, the program does not havea an executable file and must be imported into Eclipse with a properly configured Tomcat configuration in order to run.
+
 Before running the application, you must run the following SQL query in your local MySQL server with the configurations specified above.
 
-If the database is not yet initialized run the following code in your local mySQL server and then login to the root user (root, pass1234) and initialize the database. You may then log out and create an account with a unique email address.
+If the database is not yet initialized run the following code in your local mySQL server and then launch the program and login to the root user (root, pass1234) and initialize the database. You may then log out and create an account with a unique email address. Unless the tables are manually dropped in MySQL by the end user this should only be required for the first run as future initializations of the database will drop and re-create all tables.
 
 	use testdb;
 	CREATE TABLE user (
