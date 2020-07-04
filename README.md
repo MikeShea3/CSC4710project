@@ -32,3 +32,23 @@ This project requires a MySQL connection with the following configurations:
 
 ### Java Servlet Container
 Tomcat v9.0
+
+### RUNNING THE APPLICATION ###
+Before running the application, you must run the following SQL query in your local MySQL server with the configurations specified above.
+
+If the database is not yet initialized run the following code in your local mySQL server and then login to the root user (root, pass1234) and initialize the database. You may then log out and create an account with a unique email address.
+
+	use testdb;
+	CREATE TABLE user (
+	email varchar (50),
+	firstname varchar(50),
+	lastname varchar(50), 
+	password varchar(50), 
+	passwordConfirmed varchar(50),
+	age integer, 
+	primary key (email), 
+	UNIQUE(email), 
+	CHECK(password=passwordConfirmed)
+);
+
+	INSERT INTO user VALUES('root', 'system', 'admin', 'pass1234', 'pass1234', 99);
